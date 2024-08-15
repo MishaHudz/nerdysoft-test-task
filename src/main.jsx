@@ -1,13 +1,17 @@
+import { Provider } from "react-redux";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "./redux/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/nerdysoft-test-task">
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter basename="/nerdysoft-test-task">
+        <App />
+      </BrowserRouter>
+    </Provider>
   </StrictMode>
 );

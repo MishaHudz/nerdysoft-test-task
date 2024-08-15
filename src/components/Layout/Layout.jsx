@@ -4,8 +4,8 @@ function Layout() {
   return (
     <>
       <header>
-        <NavLink to="/"> Home Page</NavLink>
-        <NavLink to="/page"> Page</NavLink>
+        <NavLink to="/"> Home</NavLink>
+        <NavLink to="/play-page">Play</NavLink>
       </header>
 
       <main>

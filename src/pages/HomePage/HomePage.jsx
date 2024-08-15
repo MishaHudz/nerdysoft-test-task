@@ -1,5 +1,11 @@
+import QuestionsParametersSection from "../../components/QuestionsParametersSection/QuestionsParametersSection";
+
 function HomePage() {
-  return <h2>Home Page</h2>;
+  return (
+    <>
+      <QuestionsParametersSection />
+    </>
+  );
 }
 
 export default HomePage;
