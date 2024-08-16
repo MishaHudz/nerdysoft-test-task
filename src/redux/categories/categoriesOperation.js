@@ -6,9 +6,11 @@ export const getCategoriesList = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await getCatList();
-      return data;
+      return data.trivia_categories;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      console.log(error);
+
+      return rejectWithValue(error.message);
     }
   }
 );

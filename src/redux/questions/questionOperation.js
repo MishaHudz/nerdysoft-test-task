@@ -3,13 +3,16 @@ import { getQuestionsList } from "./questionApi";
 
 export const getQuestList = createAsyncThunk(
   "question/list",
-  async (category, { rejectWithValue }) => {
-    console.log(1);
+  async (payload, { rejectWithValue }) => {
     try {
-      const data = await getQuestionsList(category);
-      return data;
+      const data = await getQuestionsList(
+        payload?.category,
+        payload?.difficulty
+      );
+
+      return data.results;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.message);
     }
   }
 );

@@ -5,7 +5,6 @@ function Layout() {
     <>
       <header>
         <NavLink to="/"> Home</NavLink>
-        <NavLink to="/play-page">Play</NavLink>
       </header>
 
       <main>

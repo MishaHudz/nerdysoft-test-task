@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const categoriesSlice = createSlice({
-  name: "question",
+  name: "categories",
   initialState,
   extraReducers: (builder) => {
     builder
@@ -23,7 +23,6 @@ const categoriesSlice = createSlice({
         },
         (state) => {
           state.isLoading = true;
-          state.show = null;
         }
       )
       .addMatcher(
@@ -32,7 +31,9 @@ const categoriesSlice = createSlice({
         },
         (state, { payload }) => {
           state.isLoading = false;
-          state.error = payload.message;
+          // state.error = payload.message;
+          state.errorMessage = payload;
+          console.log(payload);
         }
       );
   },

@@ -3,7 +3,7 @@ import { getQuestList } from "./questionOperation";
 
 const initialState = {
   questionList: null,
-  answerList: null,
+  answerList: [],
   isLoading: false,
   errorMessage: null,
 };
@@ -11,12 +11,22 @@ const initialState = {
 const questionSlice = createSlice({
   name: "question",
   initialState,
+  reducers: {
+    addAnswer: (state, { payload }) => {
+      state.answerList = [...state.answerList, payload];
+    },
+    clearLists: (state) => {
+      state.answerList = [];
+      state.questionList = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getQuestList.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.errorMessage = null;
         state.questionList = payload;
+        state.answerList = [];
       })
       .addMatcher(
         (action) => {
@@ -24,7 +34,6 @@ const questionSlice = createSlice({
         },
         (state) => {
           state.isLoading = true;
-          state.show = null;
         }
       )
       .addMatcher(
@@ -33,10 +42,13 @@ const questionSlice = createSlice({
         },
         (state, { payload }) => {
           state.isLoading = false;
-          state.error = payload.message;
+          // state.error = payload.message;
+          state.errorMessage = payload;
+          console.log(payload);
         }
       );
   },
 });
 
 export const questionReducer = questionSlice.reducer;
+export const { addAnswer, clearLists } = questionSlice.actions;
