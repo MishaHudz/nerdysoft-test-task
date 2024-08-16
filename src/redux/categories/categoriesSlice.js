@@ -32,8 +32,7 @@ const categoriesSlice = createSlice({
         },
         (state, { payload }) => {
           state.isLoading = false;
-          // state.error = payload.message;
-          state.error = "c";
+          state.error = payload.message;
         }
       );
   },

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesList } from "../../redux/categories/categoriesOperation";
+// import { getCategoriesList } from "../../redux/categories/categoriesOperation";
 
 function CategorySelector({ selectedCategory, setSelectedCategory }) {
   const categoriesList = useSelector(
@@ -13,7 +13,7 @@ function CategorySelector({ selectedCategory, setSelectedCategory }) {
     if (categoriesList) {
       return;
     }
-    dispatch(getCategoriesList());
+    // dispatch(getCategoriesList());
   }, [categoriesList, dispatch]);
 
   return <ul>{`${selectedCategory} + 5 + ${setSelectedCategory}`}</ul>;

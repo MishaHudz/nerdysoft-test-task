@@ -33,8 +33,7 @@ const questionSlice = createSlice({
         },
         (state, { payload }) => {
           state.isLoading = false;
-          // state.error = payload.message;
-          state.error = "q";
+          state.error = payload.message;
         }
       );
   },

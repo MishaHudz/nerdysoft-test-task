@@ -1,5 +1,7 @@
+import QuestionSection from "../../components/QuestionSection/QuestionSection";
+
 function PlayPage() {
-  return <h2>Play Page</h2>;
+  return <QuestionSection />;
 }
 
 export default PlayPage;

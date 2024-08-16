@@ -7,6 +7,7 @@ export async function getQuestionsList(category, difficulty) {
     params: {
       amount: 10,
       type: "multiple",
+      token: "fbca3612f191a018f2d3ce6cf571ddc857b008aa814243891f07082be591136d",
       ...(category && { category }),
       ...(difficulty && { difficulty }),
     },
@@ -15,3 +16,14 @@ export async function getQuestionsList(category, difficulty) {
 
   return data;
 }
+
+// export async function getQuestionsList() {
+//   const { data } = await axios.get(``, {
+//     params: {
+//       command: "request",
+//     },
+//   });
+//   console.log(data);
+
+//   return data;
+// }
