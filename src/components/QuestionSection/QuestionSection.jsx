@@ -3,14 +3,20 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Question from "../Question/Question";
 import HomePageBtn from "../HomePageBtn/HomePageBtn";
+import { useDispatch } from "react-redux";
+import { saveTime } from "../../redux/questions/questionSlice.js";
 
 function QuestionSection() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const questionList = useSelector((store) => store.question.questionList);
-  //   const answerList = useSelector((store) => store.question.answerList);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(saveTime(Date.now()));
+  }, [dispatch]);
 
   useEffect(() => {
     if (questionList) {
@@ -24,6 +30,8 @@ function QuestionSection() {
       <Question
         question={questionList ? questionList[currentQuestion] : {}}
         setCurrentQuestion={setCurrentQuestion}
+        questionList={questionList ? questionList : []}
+        currentQuestion={currentQuestion}
       />
       <HomePageBtn />
     </section>

@@ -6,6 +6,7 @@ const initialState = {
   answerList: [],
   isLoading: false,
   errorMessage: null,
+  startTime: null,
 };
 
 const questionSlice = createSlice({
@@ -19,6 +20,12 @@ const questionSlice = createSlice({
       state.answerList = [];
       state.questionList = null;
     },
+    saveTime: (state, { payload }) => {
+      state.startTime = payload;
+    },
+    clearAnswersList: (state) => {
+      state.answerList = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -30,7 +37,10 @@ const questionSlice = createSlice({
       })
       .addMatcher(
         (action) => {
-          return action.type.endsWith("/pending");
+          return (
+            action.type.startsWith("question/") &&
+            action.type.endsWith("/pending")
+          );
         },
         (state) => {
           state.isLoading = true;
@@ -38,11 +48,13 @@ const questionSlice = createSlice({
       )
       .addMatcher(
         (action) => {
-          return action.type.endsWith("/rejected");
+          return (
+            action.type.startsWith("question/") &&
+            action.type.endsWith("/rejected")
+          );
         },
         (state, { payload }) => {
           state.isLoading = false;
-          // state.error = payload.message;
           state.errorMessage = payload;
           console.log(payload);
         }
@@ -51,4 +63,5 @@ const questionSlice = createSlice({
 });
 
 export const questionReducer = questionSlice.reducer;
-export const { addAnswer, clearLists } = questionSlice.actions;
+export const { addAnswer, clearLists, saveTime, clearAnswersList } =
+  questionSlice.actions;

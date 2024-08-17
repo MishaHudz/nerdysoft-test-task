@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import he from "he";
 import {
   HelperListItem,
   HelperListItemTitle,
@@ -13,16 +14,16 @@ function ResultElement({ userAnswer, correctAnswer, question }) {
     <ResultListItem>
       <ResultListItemBasePart>
         <ResultListItemBasePartQuestion>
-          {question}
+          {he.decode(question)}
         </ResultListItemBasePartQuestion>
         <ResultListItemList>
           <HelperListItem>
             <HelperListItemTitle>Your answer:</HelperListItemTitle>
-            <p>{userAnswer}</p>
+            <p>{he.decode(userAnswer)}</p>
           </HelperListItem>
           <HelperListItem>
             <HelperListItemTitle>Correct answer:</HelperListItemTitle>
-            <p>{correctAnswer}</p>
+            <p>{he.decode(correctAnswer)}</p>
           </HelperListItem>
         </ResultListItemList>
       </ResultListItemBasePart>

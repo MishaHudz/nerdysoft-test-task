@@ -26,7 +26,7 @@ export const ResSection = styled.section`
 
 export const ScoreContainer = styled.div`
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 export const ScoreContainerTitle = styled.h2`

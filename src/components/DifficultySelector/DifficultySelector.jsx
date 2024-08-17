@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { DifficultyLabel } from "./DifficultySelector.styled";
 
 function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
   return (
     <>
-      <label>
+      <DifficultyLabel>
         <input
           type="radio"
           value=""
@@ -11,9 +12,9 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
           onChange={(evt) => setSelectedDifficulty(evt.target.value)}
         />
         <span>Any</span>
-      </label>
+      </DifficultyLabel>
 
-      <label>
+      <DifficultyLabel>
         <input
           type="radio"
           value="easy"
@@ -21,9 +22,9 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
           onChange={(evt) => setSelectedDifficulty(evt.target.value)}
         />
         <span>Easy</span>
-      </label>
+      </DifficultyLabel>
 
-      <label>
+      <DifficultyLabel>
         <input
           type="radio"
           value="medium"
@@ -31,8 +32,8 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
           onChange={(evt) => setSelectedDifficulty(evt.target.value)}
         />
         <span>Medium</span>
-      </label>
-      <label>
+      </DifficultyLabel>
+      <DifficultyLabel>
         <input
           type="radio"
           value="hard"
@@ -40,7 +41,7 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
           onChange={(evt) => setSelectedDifficulty(evt.target.value)}
         />
         <span>Hard</span>
-      </label>
+      </DifficultyLabel>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import he from "he";
 import { useDispatch, useSelector } from "react-redux";
 import { addAnswer } from "../../redux/questions/questionSlice";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,9 @@ function QuestionButtonElement({ answer, setCurrentQuestion }) {
 
   return (
     <QuestionItem>
-      <QuestionBtn onClick={onAnswerButtonClick}>{answer}</QuestionBtn>
+      <QuestionBtn onClick={onAnswerButtonClick}>
+        {he.decode(answer)}
+      </QuestionBtn>
     </QuestionItem>
   );
 }

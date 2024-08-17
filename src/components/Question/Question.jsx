@@ -1,8 +1,18 @@
 import PropTypes from "prop-types";
+import he from "he";
 import QuestionButtonElement from "../QuestionButtonElement/QuestionButtonElement";
-import { QuestionList, QuestionTitle } from "./Question.styled";
+import {
+  QuestionList,
+  QuestionTitle,
+  QuestionInformationContainer,
+} from "./Question.styled";
 
-function Question({ question, setCurrentQuestion }) {
+function Question({
+  question,
+  setCurrentQuestion,
+  currentQuestion,
+  questionList,
+}) {
   const randomOrder = (incorrectList, correctAnswer) => {
     if (!incorrectList) {
       return [];
@@ -28,7 +38,11 @@ function Question({ question, setCurrentQuestion }) {
 
   return (
     <>
-      <QuestionTitle>{question?.question}</QuestionTitle>
+      <QuestionInformationContainer>
+        <h1>{he.decode(question?.category || "")}</h1>
+        <p>{` ${currentQuestion + 1} / ${questionList?.length} `}</p>
+      </QuestionInformationContainer>
+      <QuestionTitle>{he.decode(question?.question || "")}</QuestionTitle>
       <QuestionList>
         {randomOrder(
           question?.incorrect_answers,
@@ -50,4 +64,6 @@ export default Question;
 Question.propTypes = {
   question: PropTypes.object.isRequired,
   setCurrentQuestion: PropTypes.func.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  questionList: PropTypes.array.isRequired,
 };

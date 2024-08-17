@@ -19,7 +19,10 @@ const categoriesSlice = createSlice({
       })
       .addMatcher(
         (action) => {
-          return action.type.endsWith("/pending");
+          return (
+            action.type.startsWith("categories/") &&
+            action.type.endsWith("/pending")
+          );
         },
         (state) => {
           state.isLoading = true;
@@ -27,11 +30,13 @@ const categoriesSlice = createSlice({
       )
       .addMatcher(
         (action) => {
-          return action.type.endsWith("/rejected");
+          return (
+            action.type.startsWith("categories/") &&
+            action.type.endsWith("/rejected")
+          );
         },
         (state, { payload }) => {
           state.isLoading = false;
-          // state.error = payload.message;
           state.errorMessage = payload;
           console.log(payload);
         }

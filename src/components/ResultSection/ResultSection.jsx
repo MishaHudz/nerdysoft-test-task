@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import HomePageBtn from "../HomePageBtn/HomePageBtn";
+import FinishTime from "../FinishTime/FinishTime";
 
 function ResultSection() {
   const questionList = useSelector((store) => store.question.questionList);
@@ -46,6 +47,7 @@ function ResultSection() {
           / {questionList?.length}
         </ScoreContainerDescription>
       </ScoreContainer>
+      <FinishTime />
       <HomePageBtn />
       <div>
         <ResultList>

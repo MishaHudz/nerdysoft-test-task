@@ -1,9 +1,16 @@
 import { useState } from "react";
 import DifficultySelector from "../DifficultySelector/DifficultySelector";
 import CategorySelector from "../CategorySelector/CategorySelector";
+import LuckyBtn from "../LuckyBtn/LuckyBtn";
+import PlayBtn from "../PlayBtn/PlayBtn";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getQuestList } from "../../redux/questions/questionOperation";
+import {
+  ParametersFormFieldset,
+  QuestSection,
+  QuestForm,
+} from "./QuestionsParametersSection.styled.js";
 
 function QuestionsParametersSection() {
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
@@ -12,26 +19,39 @@ function QuestionsParametersSection() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onRandomButtonClick = async () => {
-    await dispatch(getQuestList());
+  const onFormSubmit = async (evt) => {
+    evt.preventDefault();
+    await dispatch(
+      getQuestList({
+        ...(selectedCategory && { category: selectedCategory }),
+        ...(selectedDifficulty && { difficulty: selectedDifficulty }),
+      })
+    );
     navigate("/play-page");
   };
 
   return (
-    <section>
-      <button onClick={onRandomButtonClick}>I&apos;m lucky</button>
-      <form>
-        <DifficultySelector
-          setSelectedDifficulty={setSelectedDifficulty}
-          selectedDifficulty={selectedDifficulty}
-        />
+    <QuestSection>
+      <LuckyBtn />
+      <QuestForm onSubmit={onFormSubmit}>
+        <ParametersFormFieldset>
+          <legend>Difficulty choice</legend>
+          <DifficultySelector
+            setSelectedDifficulty={setSelectedDifficulty}
+            selectedDifficulty={selectedDifficulty}
+          />
+        </ParametersFormFieldset>
         <CategorySelector
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
-      </form>
-      <button>Play</button>
-    </section>
+
+        <PlayBtn
+          selectedDifficulty={selectedDifficulty}
+          selectedCategory={selectedCategory}
+        />
+      </QuestForm>
+    </QuestSection>
   );
 }
 
