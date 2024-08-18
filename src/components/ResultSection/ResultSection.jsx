@@ -49,7 +49,7 @@ function ResultSection() {
         </ScoreContainerDescription>
       </ScoreContainer>
       <FinishTime />
-      <HomePageBtn />
+      <HomePageBtn text="Go home" />
       <ResultListContainer>
         <ResultList>
           {questionList?.map((question, index) => (

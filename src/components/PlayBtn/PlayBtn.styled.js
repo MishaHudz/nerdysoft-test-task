@@ -4,7 +4,7 @@ import { theme } from "../../stylesheet/theme";
 const { colors, transitions, radii, fontSizes } = theme;
 
 export const PlayButton = styled.button`
-  font-size: ${fontSizes.m};
+  font-size: ${fontSizes.xs};
 
   border: 1px solid ${colors.borderGreenAccentColor};
   background-color: ${colors.greenAccentColor};
@@ -31,6 +31,7 @@ export const PlayButton = styled.button`
   }
 
   @media (min-width: 768px) {
+    font-size: ${fontSizes.m};
   }
 
   @media (min-width: 1440px) {

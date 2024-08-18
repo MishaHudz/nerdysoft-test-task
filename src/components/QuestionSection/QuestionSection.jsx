@@ -34,7 +34,7 @@ function QuestionSection() {
         questionList={questionList ? questionList : []}
         currentQuestion={currentQuestion}
       />
-      <HomePageBtn />
+      <HomePageBtn text="Cancel" />
     </QuestSection>
   );
 }

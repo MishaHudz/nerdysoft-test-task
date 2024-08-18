@@ -4,11 +4,12 @@ import { theme } from "../../stylesheet/theme";
 const { colors, transitions, radii, fontSizes } = theme;
 
 export const LuckyButton = styled.button`
-  font-size: ${fontSizes.m};
+  font-size: ${fontSizes.xs};
+  padding: 10px 30px;
   border: 1px solid ${colors.borderGreenAccentColor};
   background-color: ${colors.greenAccentColor};
   color: ${colors.white};
-  padding: 10px 30px;
+
   border-radius: ${radii.l};
   transition: all ${transitions.regular};
   margin-bottom: 40px;
@@ -31,6 +32,7 @@ export const LuckyButton = styled.button`
   }
 
   @media (min-width: 768px) {
+    font-size: ${fontSizes.m};
   }
 
   @media (min-width: 1440px) {

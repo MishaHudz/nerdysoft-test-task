@@ -8,15 +8,10 @@ export const HomePageButton = styled.button`
   border: ${borders.medium + "" + colors.borderMainAccentColor};
   border-radius: 30px;
   transition: ${transitions.regular};
+  font-size: 12px;
 
   &:hover,
   &:focus {
     scale: 1.05;
-  }
-
-  @media (min-width: 768px) {
-  }
-
-  @media (min-width: 1440px) {
   }
 `;
