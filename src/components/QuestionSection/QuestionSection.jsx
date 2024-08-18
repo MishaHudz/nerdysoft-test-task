@@ -5,6 +5,7 @@ import Question from "../Question/Question";
 import HomePageBtn from "../HomePageBtn/HomePageBtn";
 import { useDispatch } from "react-redux";
 import { saveTime } from "../../redux/questions/questionSlice.js";
+import { QuestSection } from "./QuestionSection.styled.js";
 
 function QuestionSection() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -26,7 +27,7 @@ function QuestionSection() {
   }, [navigate, questionList]);
 
   return (
-    <section>
+    <QuestSection>
       <Question
         question={questionList ? questionList[currentQuestion] : {}}
         setCurrentQuestion={setCurrentQuestion}
@@ -34,7 +35,7 @@ function QuestionSection() {
         currentQuestion={currentQuestion}
       />
       <HomePageBtn />
-    </section>
+    </QuestSection>
   );
 }
 

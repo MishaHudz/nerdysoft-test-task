@@ -5,6 +5,9 @@ import {
   QuestionList,
   QuestionTitle,
   QuestionInformationContainer,
+  QuestionCard,
+  QuestionInformationCount,
+  QuestionInformationTitle,
 } from "./Question.styled";
 
 function Question({
@@ -39,22 +42,28 @@ function Question({
   return (
     <>
       <QuestionInformationContainer>
-        <h1>{he.decode(question?.category || "")}</h1>
-        <p>{` ${currentQuestion + 1} / ${questionList?.length} `}</p>
+        <QuestionInformationTitle>
+          {he.decode(question?.category || "")}
+        </QuestionInformationTitle>
+        <QuestionInformationCount>{` ${currentQuestion + 1} / ${
+          questionList?.length
+        } `}</QuestionInformationCount>
       </QuestionInformationContainer>
-      <QuestionTitle>{he.decode(question?.question || "")}</QuestionTitle>
-      <QuestionList>
-        {randomOrder(
-          question?.incorrect_answers,
-          question?.correct_answer
-        )?.map((answer, index) => (
-          <QuestionButtonElement
-            key={index}
-            answer={answer}
-            setCurrentQuestion={setCurrentQuestion}
-          />
-        ))}
-      </QuestionList>
+      <QuestionCard>
+        <QuestionTitle>{he.decode(question?.question || "")}</QuestionTitle>
+        <QuestionList>
+          {randomOrder(
+            question?.incorrect_answers,
+            question?.correct_answer
+          )?.map((answer, index) => (
+            <QuestionButtonElement
+              key={index}
+              answer={answer}
+              setCurrentQuestion={setCurrentQuestion}
+            />
+          ))}
+        </QuestionList>
+      </QuestionCard>
     </>
   );
 }

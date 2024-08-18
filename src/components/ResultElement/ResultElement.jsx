@@ -11,7 +11,7 @@ import {
 } from "./ResultElement.styled";
 function ResultElement({ userAnswer, correctAnswer, question }) {
   return (
-    <ResultListItem>
+    <ResultListItem $correct={userAnswer === correctAnswer}>
       <ResultListItemBasePart>
         <ResultListItemBasePartQuestion>
           {he.decode(question)}

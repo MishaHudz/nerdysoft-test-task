@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import { DifficultyLabel } from "./DifficultySelector.styled";
+import { DifficultyInput, DifficultyLabel } from "./DifficultySelector.styled";
 
 function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
   return (
     <>
       <DifficultyLabel>
-        <input
+        <DifficultyInput
           type="radio"
           value=""
           checked={selectedDifficulty === ""}
@@ -15,7 +15,7 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
       </DifficultyLabel>
 
       <DifficultyLabel>
-        <input
+        <DifficultyInput
           type="radio"
           value="easy"
           checked={selectedDifficulty === "easy"}
@@ -25,7 +25,7 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
       </DifficultyLabel>
 
       <DifficultyLabel>
-        <input
+        <DifficultyInput
           type="radio"
           value="medium"
           checked={selectedDifficulty === "medium"}
@@ -34,7 +34,7 @@ function DifficultySelector({ setSelectedDifficulty, selectedDifficulty }) {
         <span>Medium</span>
       </DifficultyLabel>
       <DifficultyLabel>
-        <input
+        <DifficultyInput
           type="radio"
           value="hard"
           checked={selectedDifficulty === "hard"}

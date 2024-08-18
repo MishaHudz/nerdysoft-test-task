@@ -8,4 +8,10 @@ export const CardList = styled.ul`
   row-gap: 30px;
 
   margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1440px) {
+  }
 `;

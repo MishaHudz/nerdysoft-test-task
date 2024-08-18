@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const ResultListContainer = styled.div`
+  margin-top: 30px;
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1440px) {
+  }
+`;
+
 export const ResultList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -16,8 +25,12 @@ export const ResSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: 768px) {
+    width: 75%;
   }
 
   @media (min-width: 1440px) {

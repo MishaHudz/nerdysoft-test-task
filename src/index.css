@@ -1,13 +1,18 @@
 body {
   margin: 0;
-  font-family: Poppins, sans-serif;
+  font-family: "Merriweather", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  color: #fff;
+  color: #88562f;
   font-size: 12px;
-  line-height: 16px;
-  background-color: #050505;
+  line-height: 1.33em;
+  background: rgb(255, 235, 211);
+  background: linear-gradient(
+    328deg,
+    rgba(255, 235, 211, 1) 0%,
+    rgba(255, 249, 242, 1) 100%
+  );
 }
 
 ul {
@@ -52,11 +57,6 @@ button {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 input:focus {

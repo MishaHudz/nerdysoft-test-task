@@ -13,6 +13,7 @@ function QuestionButtonElement({ answer, setCurrentQuestion }) {
   const navigate = useNavigate();
 
   const onAnswerButtonClick = (evt) => {
+    evt.currentTarget.blur();
     if (answers.length + 1 === questions.length) {
       navigate("/results-page");
       dispatch(addAnswer(evt.target.innerText));

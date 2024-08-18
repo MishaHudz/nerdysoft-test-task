@@ -1,7 +1,42 @@
 import styled from "styled-components";
+import { theme } from "../../stylesheet/theme";
+
+const { colors, transitions, radii } = theme;
 
 export const CardWrapper = styled.div`
-  width: 30%;
+  width: 90%;
+  @media (min-width: 768px) {
+    width: 40%;
+  }
+
+  @media (min-width: 1440px) {
+    width: 30%;
+  }
+`;
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: ${({ selected }) =>
+    selected ? `${colors.white}` : `${colors.mainText}`};
+  display: flex;
+  border: 1px solid;
+  border-radius: ${radii.m};
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: ${transitions.regular};
+  border-color: ${({ selected }) =>
+    selected
+      ? `${colors.borderSecondAccentColor}`
+      : `${colors.borderMainAccentColor}`};
+  background-color: ${({ selected }) =>
+    selected ? `${colors.secondAccentColor}` : `${colors.mainAccentColor}`};
+
+  &:hover {
+    scale: 1.1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 export const HiddenRadio = styled.input`
@@ -16,19 +51,6 @@ export const HiddenRadio = styled.input`
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-`;
-
-export const Label = styled.label`
-  color: black;
-  display: flex;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: #fff;
-  border-color: ${({ selected }) => (selected ? "#007bff" : "#ccc")};
-  background-color: ${({ selected }) => (selected ? "#f0f8ff" : "#fff")};
 `;
 
 export const CardContent = styled.div`

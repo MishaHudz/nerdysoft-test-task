@@ -10,6 +10,7 @@ import {
   ParametersFormFieldset,
   QuestSection,
   QuestForm,
+  ParametersFormLegend,
 } from "./QuestionsParametersSection.styled.js";
 
 function QuestionsParametersSection() {
@@ -35,7 +36,7 @@ function QuestionsParametersSection() {
       <LuckyBtn />
       <QuestForm onSubmit={onFormSubmit}>
         <ParametersFormFieldset>
-          <legend>Difficulty choice</legend>
+          <ParametersFormLegend>Difficulty choice</ParametersFormLegend>
           <DifficultySelector
             setSelectedDifficulty={setSelectedDifficulty}
             selectedDifficulty={selectedDifficulty}

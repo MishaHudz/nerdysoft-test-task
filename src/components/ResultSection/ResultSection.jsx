@@ -7,6 +7,7 @@ import {
   ScoreContainerDescription,
   ScoreContainerDescriptionAccent,
   ScoreContainerTitle,
+  ResultListContainer,
 } from "./ResultSection.styled";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -49,7 +50,7 @@ function ResultSection() {
       </ScoreContainer>
       <FinishTime />
       <HomePageBtn />
-      <div>
+      <ResultListContainer>
         <ResultList>
           {questionList?.map((question, index) => (
             <ResultElement
@@ -60,7 +61,7 @@ function ResultSection() {
             />
           ))}
         </ResultList>
-      </div>
+      </ResultListContainer>
     </ResSection>
   );
 }
