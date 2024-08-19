@@ -313,6 +313,8 @@ Error generating stack: `+o.message+`
   margin-left: auto;
   margin-right: auto;
 
+  padding-bottom: 50px;
+
   @media (min-width: 768px) {
     width: 75%;
   }
@@ -533,6 +535,8 @@ Error generating stack: `+o.message+`
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+
+  padding-bottom: 50px;
 
   @media (min-width: 768px) {
     width: 75%;
