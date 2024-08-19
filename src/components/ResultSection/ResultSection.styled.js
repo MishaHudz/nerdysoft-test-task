@@ -29,6 +29,8 @@ export const ResSection = styled.section`
   margin-left: auto;
   margin-right: auto;
 
+  padding-bottom: 50px;
+
   @media (min-width: 768px) {
     width: 75%;
   }
